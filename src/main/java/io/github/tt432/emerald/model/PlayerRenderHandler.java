@@ -3,15 +3,14 @@ package io.github.tt432.emerald.model;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
+import io.github.tt432.emerald.Emerald;
 import io.github.tt432.emerald.item.EmeraldItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,14 +22,16 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class PlayerRenderHandler {
     static boolean init;
-    static steve<?> model;
+    static TabletHoldModel<?> model;
+
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Emerald.MOD_ID, "textures/entity/emerald_tablet.png");
 
     @SubscribeEvent
     public static void playerRender(RenderPlayerEvent.Pre event) {
         AbstractClientPlayer player = (AbstractClientPlayer) event.getPlayer();
 
         if (!init) {
-            model = new steve<>(Minecraft.getInstance().getEntityModels().bakeLayer(steve.LAYER_LOCATION));
+            model = new TabletHoldModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(TabletHoldModel.LAYER_LOCATION));
             init = true;
         }
 
@@ -47,6 +48,11 @@ public class PlayerRenderHandler {
             RenderType renderType = RenderType.itemEntityTranslucentCull(player.getSkinTextureLocation());
             VertexConsumer vertexConsumer = event.getMultiBufferSource().getBuffer(renderType);
             model.renderToBuffer(poseStack, vertexConsumer, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
+                    1, 1, 1, 1);
+
+            RenderType renderType2 = RenderType.itemEntityTranslucentCull(TEXTURE);
+            VertexConsumer vertexConsumer2 = event.getMultiBufferSource().getBuffer(renderType2);
+            model.renderToBuffer2(poseStack, vertexConsumer2, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
                     1, 1, 1, 1);
 
             poseStack.popPose();
