@@ -13,7 +13,7 @@ public class EmeraldEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, Emerald.MOD_ID);
 
     public static final RegistryObject<EntityType<EmeraldTabletEntity>> EMERALD_TABLET = ENTITY_TYPES.register("emerald_tablet",
-            () -> EntityType.Builder.of(EmeraldTabletEntity::new, MobCategory.MISC)
+            () -> EntityType.Builder.<EmeraldTabletEntity>of(EmeraldTabletEntity::new, MobCategory.MISC)
                     .sized(0.6F, 0.6F).fireImmune().build("emerald_tablet"));
 
     public static void register(IEventBus bus) {

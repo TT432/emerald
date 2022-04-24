@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class EmeraldItems {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Emerald.MOD_ID);
 
-    public static final RegistryObject<Item> EMERALD_TABLET = ITEMS.register("emerald_tablet", () -> new Item(defaultProperties()));
+    public static final RegistryObject<Item> EMERALD_TABLET = ITEMS.register("emerald_tablet", EmeraldTabletItem::new);
 
     private static Item.Properties defaultProperties() {
         return new Item.Properties().tab(Emerald.ITEM_TAB);
