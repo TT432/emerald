@@ -1,5 +1,6 @@
 package io.github.tt432.emerald;
 
+import io.github.tt432.emerald.entity.EmeraldEntities;
 import io.github.tt432.emerald.item.EmeraldItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -35,5 +36,6 @@ public class Emerald {
     public Emerald() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         EmeraldItems.register(bus);
+        EmeraldEntities.register(bus);
     }
 }
