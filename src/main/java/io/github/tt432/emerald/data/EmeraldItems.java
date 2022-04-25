@@ -1,6 +1,7 @@
-package io.github.tt432.emerald.item;
+package io.github.tt432.emerald.data;
 
 import io.github.tt432.emerald.Emerald;
+import io.github.tt432.emerald.world.EmeraldTabletItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

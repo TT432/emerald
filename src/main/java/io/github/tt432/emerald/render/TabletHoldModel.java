@@ -1,4 +1,4 @@
-package io.github.tt432.emerald.model;// Made with Blockbench 4.2.3
+package io.github.tt432.emerald.render;// Made with Blockbench 4.2.3
 // Exported for Minecraft version 1.17 - 1.18 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 

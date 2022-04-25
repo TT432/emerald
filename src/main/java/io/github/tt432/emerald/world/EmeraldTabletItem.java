@@ -1,7 +1,7 @@
-package io.github.tt432.emerald.item;
+package io.github.tt432.emerald.world;
 
 import io.github.tt432.emerald.Emerald;
-import io.github.tt432.emerald.entity.EmeraldTabletEntity;
+import io.github.tt432.emerald.data.EmeraldSounds;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -27,6 +27,7 @@ public class EmeraldTabletItem extends Item {
             tablet.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
         }
         worldIn.addFreshEntity(tablet);
+        worldIn.playSound(null, tablet, EmeraldSounds.EMERALD_TABLET_THROW.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
         if (!playerIn.getAbilities().instabuild) {
             playerIn.getInventory().removeItem(itemStack);
         }

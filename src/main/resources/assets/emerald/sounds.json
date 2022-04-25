@@ -1,0 +1,33 @@
+{
+  "item.emerald_tablet.throw": {
+    "subtitle": "subtitles.item.emerald_tablet.throw",
+    "replace": true,
+    "sounds": [
+      "minecraft:block/amethyst_cluster/place1",
+	  "minecraft:block/amethyst_cluster/place2",
+	  "minecraft:block/amethyst_cluster/place3",
+	  "minecraft:block/amethyst_cluster/place4"
+    ]
+  },
+  "item.emerald_tablet.hit": {
+    "subtitle": "subtitles.emerald_tablet.hit",
+    "replace": true,
+    "sounds": [
+      "minecraft:entity/player/attack/crit1",
+      "minecraft:entity/player/attack/crit1",
+      "minecraft:entity/player/attack/crit1"
+    ]
+  },
+  "item.emerald_tablet.hit_ground": {
+    "subtitle": "subtitles.item.emerald_tablet.hit_ground",
+    "replace": true,
+    "sounds": [
+	  "minecraft:block/nether_bricks/step1",
+	  "minecraft:block/nether_bricks/step2",
+	  "minecraft:block/nether_bricks/step3",
+	  "minecraft:block/nether_bricks/step4",
+	  "minecraft:block/nether_bricks/step5",
+	  "minecraft:block/nether_bricks/step6"
+    ]
+  }
+}

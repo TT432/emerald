@@ -1,6 +1,6 @@
-package io.github.tt432.emerald.model;
+package io.github.tt432.emerald.render;
 
-import io.github.tt432.emerald.entity.EmeraldEntities;
+import io.github.tt432.emerald.data.EmeraldEntities;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.Entity;

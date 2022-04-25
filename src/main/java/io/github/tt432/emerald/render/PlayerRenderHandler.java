@@ -1,10 +1,10 @@
-package io.github.tt432.emerald.model;
+package io.github.tt432.emerald.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
 import io.github.tt432.emerald.Emerald;
-import io.github.tt432.emerald.item.EmeraldItems;
+import io.github.tt432.emerald.data.EmeraldItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.RenderType;

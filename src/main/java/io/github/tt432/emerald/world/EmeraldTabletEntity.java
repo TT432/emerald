@@ -1,8 +1,12 @@
-package io.github.tt432.emerald.entity;
+package io.github.tt432.emerald.world;
 
-import io.github.tt432.emerald.item.EmeraldItems;
+import io.github.tt432.emerald.data.EmeraldDamageSources;
+import io.github.tt432.emerald.data.EmeraldEntities;
+import io.github.tt432.emerald.data.EmeraldItems;
+import io.github.tt432.emerald.data.EmeraldSounds;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.entity.Entity;
@@ -47,12 +51,13 @@ public class EmeraldTabletEntity extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult ray) {
         Entity target = ray.getEntity();
-        float damage = 10f; //todo add multiplier to speed
+        Vec3 mov = this.getDeltaMovement();
+        final float baseDamage = 10f;
 
         Entity owner = this.getOwner();
-        DamageSource damageSource = new IndirectEntityDamageSource("emerald_tablet", this, (owner == null ? this : owner)).setProjectile();
+        DamageSource damageSource = EmeraldDamageSources.EMERALD_TABLET(owner, this);
         this.dealtDamage = true;
-        if (target.hurt(damageSource, damage)) {
+        if (target.hurt(damageSource, (float) (baseDamage * mov.length()))) {
             if (target.getType() == EntityType.ENDERMAN) {
                 return;
             }
@@ -64,7 +69,13 @@ public class EmeraldTabletEntity extends AbstractArrow {
                 this.doPostHurtEffects(targetLiving);
             }
         }
-        this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
+        this.setDeltaMovement(mov.multiply(-0.01D, -0.1D, -0.01D));
+        this.playSound(EmeraldSounds.EMERALD_TABLET_HIT.get(), 1.0F, 1.0F);
+    }
+
+    @Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
+        return EmeraldSounds.EMERALD_TABLET_HIT_GROUND.get();
     }
     @Override
     public void playerTouch(Player playerIn) {

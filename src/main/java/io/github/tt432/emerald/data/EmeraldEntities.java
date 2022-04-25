@@ -1,6 +1,7 @@
-package io.github.tt432.emerald.entity;
+package io.github.tt432.emerald.data;
 
 import io.github.tt432.emerald.Emerald;
+import io.github.tt432.emerald.world.EmeraldTabletEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
