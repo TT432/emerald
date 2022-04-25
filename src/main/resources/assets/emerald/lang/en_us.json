@@ -4,6 +4,8 @@
   "entity.emerald.emerald_tablet": "Emerald Tablet",
   "death.attack.emerald_tablet": "%1$s was smashed by %2$s with an Emerald Tablet",
   "death.attack.emerald_tablet.item": "%1$s was smashed by %2$s with %3$s",
+  "advancements.emerald.tablet.root.title": "Emerald Tablet",
+  "advancements.emerald.tablet.root.description": "Does not support MacOS",
   "subtitles.item.emerald_tablet.throw": "Emerald Tablet thrown",
   "subtitles.item.emerald_tablet.hit": "Emerald Tablet hits",
   "subtitles.item.emerald_tablet.hit_ground": "Emerald Tablet hits ground"

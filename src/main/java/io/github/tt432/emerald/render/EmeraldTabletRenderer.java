@@ -29,7 +29,7 @@ public class EmeraldTabletRenderer extends EntityRenderer<EmeraldTabletEntity> {
     @Override
     public void render(EmeraldTabletEntity entity, float entityYaw, float partialTicks, PoseStack stack, MultiBufferSource buffer, int packedLight) {
         stack.pushPose();
-        stack.translate(0f, -0.5f, 0f);
+        stack.translate(0f, -0.75f, 0f);
         stack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
         stack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) + 90.0F));
         VertexConsumer vertexBuilder = ItemRenderer.getFoilBufferDirect(buffer, this.model.renderType(this.getTextureLocation(entity)), false, false);
