@@ -8,7 +8,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,6 +22,9 @@ import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
+/**
+ * @author LocusAzzurro
+ */
 public class EmeraldTabletEntity extends AbstractArrow {
 
     private boolean dealtDamage;
