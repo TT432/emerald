@@ -33,7 +33,7 @@ public class EmeraldTabletModel<T extends Entity> extends EntityModel<T> {
                 .texOffs(0, 18).addBox(-6.0F, 6.5F, -0.5F, 12.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 16).addBox(-6.0F, -7.5F, -0.5F, 12.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.5F, 0.5F));
 
-        return LayerDefinition.create(meshdefinition, 32, 32);
+        return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
     @Override
