@@ -19,7 +19,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ModelRegister {
     @SubscribeEvent
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
-        ForgeHooksClient.registerLayerDefinition(TabletHoldModel.LAYER_LOCATION, TabletHoldModel::createBodyLayer);
+        ForgeHooksClient.registerLayerDefinition(TabletHoldSteve.LAYER_LOCATION, TabletHoldSteve::createBodyLayer);
+        ForgeHooksClient.registerLayerDefinition(TabletHoldAlex.LAYER_LOCATION, TabletHoldAlex::createBodyLayer);
         ForgeHooksClient.registerLayerDefinition(EmeraldTabletModel.LAYER_LOCATION, EmeraldTabletModel::createBodyLayer);
     }
 

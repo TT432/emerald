@@ -14,12 +14,12 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
-public class TabletHoldModel<T extends Entity> extends EntityModel<T> {
+public class TabletHoldSteve<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Emerald.MOD_ID, "tablet_hold"), "main");
 	private final ModelPart player;
 	private final ModelPart tablet;
 
-	public TabletHoldModel(ModelPart root) {
+	public TabletHoldSteve(ModelPart root) {
 		this.player = root.getChild("player");
 		this.tablet = root.getChild("tablet");
 	}

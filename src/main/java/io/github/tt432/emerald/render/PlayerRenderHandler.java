@@ -22,7 +22,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class PlayerRenderHandler {
     static boolean init;
-    static TabletHoldModel<?> model;
+    static TabletHoldSteve<?> steveModel;
+    static TabletHoldAlex<?> alexModel;
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(Emerald.MOD_ID, "textures/entity/emerald_tablet.png");
 
@@ -31,11 +32,12 @@ public class PlayerRenderHandler {
         AbstractClientPlayer player = (AbstractClientPlayer) event.getPlayer();
 
         if (!init) {
-            model = new TabletHoldModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(TabletHoldModel.LAYER_LOCATION));
+            steveModel = new TabletHoldSteve<>(Minecraft.getInstance().getEntityModels().bakeLayer(TabletHoldSteve.LAYER_LOCATION));
+            alexModel = new TabletHoldAlex<>(Minecraft.getInstance().getEntityModels().bakeLayer(TabletHoldAlex.LAYER_LOCATION));
             init = true;
         }
 
-        if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == EmeraldItems.EMERALD_TABLET.get()) {
+        if (player.getItemInHand(InteractionHand.OFF_HAND).getItem() == EmeraldItems.EMERALD_TABLET.get()) {
             PoseStack poseStack = event.getPoseStack();
 
             poseStack.pushPose();
@@ -43,16 +45,23 @@ public class PlayerRenderHandler {
             poseStack.scale(-1.0F, -1.0F, 1.0F);
             poseStack.translate(0.0D, (double)-1.501F, 0.0D);
 
-            poseStack.mulPose(Vector3f.YP.rotationDegrees(player.yBodyRot + 180));
+            poseStack.mulPose(Vector3f.YP.rotationDegrees(player.yHeadRot + 180));
 
             RenderType renderType = RenderType.itemEntityTranslucentCull(player.getSkinTextureLocation());
             VertexConsumer vertexConsumer = event.getMultiBufferSource().getBuffer(renderType);
-            model.renderToBuffer(poseStack, vertexConsumer, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
-                    1, 1, 1, 1);
+
+            if (event.getRenderer().getModel().slim) {
+                alexModel.renderToBuffer(poseStack, vertexConsumer, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
+                        1.0F, 1.0F, 1.0F, 1.0F);
+            }
+            else {
+                steveModel.renderToBuffer(poseStack, vertexConsumer, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
+                        1, 1, 1, 1);
+            }
 
             RenderType renderType2 = RenderType.itemEntityTranslucentCull(TEXTURE);
             VertexConsumer vertexConsumer2 = event.getMultiBufferSource().getBuffer(renderType2);
-            model.renderToBuffer2(poseStack, vertexConsumer2, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
+            steveModel.renderToBuffer2(poseStack, vertexConsumer2, event.getPackedLight(), OverlayTexture.NO_OVERLAY,
                     1, 1, 1, 1);
 
             poseStack.popPose();
