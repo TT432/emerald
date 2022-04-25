@@ -74,7 +74,7 @@ public class EmeraldTabletEntity extends AbstractArrow {
     }
 
     @Override
-    protected SoundEvent getDefaultHitGroundSoundEvent() {
+    public SoundEvent getDefaultHitGroundSoundEvent() {
         return EmeraldSounds.EMERALD_TABLET_HIT_GROUND.get();
     }
     @Override

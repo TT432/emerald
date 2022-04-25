@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "emerald:emerald_tablet"
+    },
+    "title": {
+      "translate": "advancements.emerald.tablet.root.title"
+    },
+    "description": {
+      "translate": "advancements.emerald.tablet.root.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/emerald_block.png"
+  },
+  "criteria": {
+    "tablet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["emerald:emerald_tablet"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tablet"
+    ]
+  ]
+}
